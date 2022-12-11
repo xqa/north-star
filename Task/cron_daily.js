@@ -2,11 +2,10 @@
 README：https://github.com/yichahucha/surge/tree/master
 每日蚂蚁收能量提醒（corn "11 7 * * *" 每天7:11）+ 每日壹句（有道词典）+ 点击通知跳转支付宝蚂蚁森林页面
 */
-
+$notify('1', 'subtitle', "收能量啦👉", {"open-url" : 'alipay://platformapi/startapp?appId=60000002'})
 const $tool = new Tool()
 $tool.get('https://dict.youdao.com/infoline/style/cardList?mode=publish&client=mobile&style=daily&size=2', function (error, response, data) {
     let obj = JSON.parse(data);
-    console.log(obj);
     let date = new Date();
     let isAM = date.getHours() < 12 ? true : false;
     let title = '每日' + (isAM ? ' 壹句' : ' 壹句') + (isAM ? ' ☀️' : ' 🌙');
