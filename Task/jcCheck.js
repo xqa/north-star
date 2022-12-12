@@ -1,6 +1,11 @@
+/*
+泡芙云机场签到
+SITE_ACCOUNTS = 邮箱:密码
+*/
+
 const $ = new Env("泡芙云机场签到");
 const notify = $.isNode() ? require("./sendNotify") : "";
-let total = process.env.SITE_ACCOUNTS,  message = '';
+let total = ($.isNode() ?process.env.SITE_ACCOUNTS : $.getdata('SITE_ACCOUNTS')) || '',  message = '';
 $.SITE_URL = "https://www.paofu.cloud"
 
 
