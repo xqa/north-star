@@ -1,6 +1,6 @@
 /*
  应用名称：KeepStyle
-脚本功能：去除home页上方活动、底部社区、底部商城以及我的页面推广信息
+脚本：去除home页上方活动、底部社区、底部商城以及我的页面推广信息
 */
 
 if ($request.url.indexOf('athena/v5/people/my') != -1) {

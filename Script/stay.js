@@ -1,6 +1,6 @@
 /*
 应用名称：Stay去除仓库广告
-脚本功能：去除仓库广告
+脚本：去除仓库广告
 */
 
 const obj = JSON.parse($response.body);

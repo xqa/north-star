@@ -1,7 +1,7 @@
 /*
 应用名称：阿里云盘
-更新时间：2022-10-16
-脚本功能：优化首页display
+时间：2022-10-16
+脚本：优化首页display
 */
 
 let obj = JSON.parse($response.body);
