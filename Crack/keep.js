@@ -8,16 +8,16 @@
 [mitm] 
 hostname = api.gotokeep.com
 *******************************/
-let body = JSON.parse($response.body);
-body["memberStatus"] = 1;
-body["username"] = "这个人好帅";
-body["buttonText"] = "已永久";
-body["hasPaid"] = true;
-body["downLoadAll"] = true;
-body["videoTime"] = 3000;
-body["startEnable"] = true;
-body["memberStatus"] = 1;
-body["preview"] = true;
-body["errorCode"] = 0;
-body["status"] = true;
-$done({ body: JSON.stringify(body) });
+
+const body = $response.body
+  .replace(/\"memberStatus":\d+/g, '"memberStatus":1')
+  .replace(/\"username":".*?"/g, '"username":"这个人好帅"')
+  .replace(/\"buttonText":".*?"/g, '"buttonText":"已永久"')
+  .replace(/\"hasPaid\":\w+/g, '"hasPaid":true')
+  .replace(/\"downLoadAll\":\w+/g, '"downLoadAll":true')
+  .replace(/\"videoTime\":\d+/g, '"videoTime":3000')
+  .replace(/\"startEnable\":\w+/g, '"startEnable":true')
+  .replace(/\"preview\":\w+/g, '"preview":true')
+  .replace(/\"errorCode\":\d+/g, '"errorCode":0')
+  .replace(/\"status\":\w+/g, '"status":true');
+$done({ body: body });

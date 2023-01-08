@@ -8,16 +8,17 @@
 [mitm] 
 hostname = api.duitang.com
 *******************************/
-let body = JSON.parse($response.body);
-body["vip"] = true;
-body["is_life_artist"] = true;
-body["isnew"] = true;
-body["short_video"] = true;
-body["vip_end_at_mills"] = 9999999999999;
-body["vip_level"] = 9;
-body["is_certify_user"] = true;
-body["be_follow_count"] = 9999999999999;
-body["follow_count"] = 9999999999999;
-body["score"] = 9999999999999;
-body["username"] = "这个人好帅";
-$done({ body: JSON.stringify(body) });
+
+const body = $response.body
+  .replace(/\"vip":\w+/g, '"vip":true')
+  .replace(/\"is_life_artist":\w+/g, '"is_life_artist":true')
+  .replace(/\"isnew":\w+/g, '"isnew":true')
+  .replace(/\"short_video":\w+/g, '"short_video":true')
+  .replace(/\"vip_end_at_mills":\d+/g, '"vip_end_at_mills":99999999999000')
+  .replace(/\"vip_level":\d+/g, '"vip_level":11')
+  .replace(/\"is_certify_user":\w+/g, '"is_certify_user":true')
+  .replace(/\"be_follow_count":\d+/g, '"be_follow_count":1000000')
+  .replace(/\"follow_count":\d+/g, '"follow_count":1000000')
+  .replace(/\"score":\d+/g, '"score":1000000')
+  .replace(/\"username":".*?"/g, '"username":"这个人好帅"');
+$done({ body: body });

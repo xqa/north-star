@@ -1,6 +1,6 @@
 /******************************
 脚本：钱迹解锁VIP
-版本：7.36.0
+软件版本：3.0.6
 时间：2022-10-5
 *******************************
 [rewrite_local]
@@ -8,10 +8,8 @@
 [mitm] 
 hostname = qianji.xxoojoke.com
 *******************************/
-
-let body = JSON.parse($response.body);
-body["vipend"] = 2365847580;
-body["viptype"] = 100;
-body["vipstart"] = 1365847580;
-body["name"] = "这个人好帅";
-$done({ body: JSON.stringify(body) });
+const body = $response.body
+  .replace(/\"vipend":\-1/g, 2365847580)
+  .replace(/\"viptype":\-1/g, 100)
+  .replace(/\"vipstart":\-1/g, 1365847580);
+$done({ body: body });
