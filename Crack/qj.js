@@ -8,8 +8,12 @@
 [mitm] 
 hostname = qianji.xxoojoke.com
 *******************************/
-const body = $response.body
-  .replace(/\"vipend":\-1/g, '"vipend":2365847580')
-  .replace(/\"viptype":\-1/g, '"viptype":100')
-  .replace(/\"vipstart":\-1/g, '"vipstart":1365847580');
-$done({ body: body });
+
+let body = JSON.parse($response.body);
+body.data.config.userinfo = {
+  ...body.data.config.userinfo,
+  vipend: 2365847580,
+  viptype: 100,
+  vipstart: 1365847580,
+};
+$done({ body: JSON.stringify(body) });

@@ -4,9 +4,9 @@
 更新时间：2022-10-7
 *******************************
 [rewrite_local]
-^https:\/\/api\.duitang\.com\/napi url script-response-body https://raw.githubusercontent.com/xqa/north-star/main/Crack/duitang.js
+^https:\/\/(api|www)\.duitang\.com\/napi url script-response-body https://raw.githubusercontent.com/xqa/north-star/main/Crack/duitang.js
 [mitm] 
-hostname = api.duitang.com
+hostname = api.duitang.com,www.duitang.com
 *******************************/
 
 const body = $response.body
