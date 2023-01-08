@@ -9,7 +9,7 @@
 hostname = qianji.xxoojoke.com
 *******************************/
 const body = $response.body
-  .replace(/\"vipend":\-1/g, 2365847580)
-  .replace(/\"viptype":\-1/g, 100)
-  .replace(/\"vipstart":\-1/g, 1365847580);
+  .replace(/\"vipend":\-1/g, '"vipend":2365847580')
+  .replace(/\"viptype":\-1/g, '"viptype":100')
+  .replace(/\"vipstart":\-1/g, '"vipstart":1365847580');
 $done({ body: body });
