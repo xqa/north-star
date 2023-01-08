@@ -6,6 +6,7 @@
 [rewrite_local]
 ^https:\/\/qianji\.xxoojoke\.com\/vip\/configios url script-response-body https://raw.githubusercontent.com/xqa/north-star/main/Crack/qj.js
 ^https:\/\/qianji\.xxoojoke\.com\/client\/init url script-response-body https://raw.githubusercontent.com/xqa/north-star/main/Crack/qj.js
+^https:\/\/qianji\.xxoojoke\.com\/budget\/list url script-response-body https://raw.githubusercontent.com/xqa/north-star/main/Crack/qj.js
 [mitm] 
 hostname = qianji.xxoojoke.com
 *******************************/
