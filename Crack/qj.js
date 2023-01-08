@@ -9,22 +9,28 @@
 [mitm] 
 hostname = qianji.xxoojoke.com
 *******************************/
-const body = JSON.parse($response.body);
+let body = JSON.parse($response.body);
 const hack = {
   vipend: 2365847580,
   viptype: 100,
   vipstart: 1365847580,
-}
-if($request.url.match("vip/configios")){
+};
+if ($request.url.match("vip/configios")) {
   body.data.config.userinfo = {
     ...body.data.config.userinfo,
-    ...hack
+    ...hack,
   };
 }
-if($request.url.match("client/init")){
+if ($request.url.match("client/init")) {
   body.data.userinfo = {
     ...body.data.userinfo,
-    ...hack
+    ...hack,
+  };
+}
+if ($request.url.match("budget/list")) {
+  body = {
+    ec: 200,
+    em: "",
   };
 }
 
